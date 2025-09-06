@@ -1,3 +1,5 @@
+servers:
+  - url: https://rainmeter-actions-server.onrender.com/
 openapi: 3.0.0
 info:
   title: search_docs
@@ -45,4 +47,5 @@ paths:
                       properties:
                         title: { type: string }
                         url: { type: string }
+
                         snippet: { type: string }
