@@ -1,17 +1,17 @@
-servers:
-  - url: https://rainmeter-actions-server.onrender.com/
 openapi: 3.1.0
 info:
   title: search_docs
   version: "1.0.0"
   description: Rechercher dans la doc officielle Rainmeter (manual/forum) pour confirmer une option.
+
 servers:
   - url: https://rainmeter-actions-server.onrender.com
+
 paths:
   /search:
     post:
-      operationId: searchDocs 
-      summary: Recherche une requête texte.
+      operationId: searchDocs
+      summary: Recherche une requête texte dans les sitemaps Rainmeter
       requestBody:
         required: true
         content:
@@ -33,7 +33,7 @@ paths:
                   minimum: 1
                   maximum: 10
                   default: 5
-      responses: 
+      responses:
         "200":
           description: Résultats de recherche
           content:
@@ -50,8 +50,4 @@ paths:
                       properties:
                         title: { type: string }
                         url: { type: string }
-
                         snippet: { type: string }
-
-
-
