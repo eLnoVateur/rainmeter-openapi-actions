@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: Rainmeter Actions
+  version: "1.0.0"
+  description: |
+    Trois actions pour GPT reliées à ton serveur Render :
+    - /run : exécuter un snippet court (Python, PowerShell, Batch)
+    - /write : générer un fichier texte (.ini, .lua, etc.)
+    - /search : rechercher dans la documentation Rainmeter
+
+servers:
+  - url: https://rainmeter-actions.onrender.com   # ⚠️ remplace par ton URL Render exacte
+
+paths:
+  /run:
+    post:
+      operationId: runCode
+      summary: Exécute un snippet et renvoie stdout/stderr/exitCode
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [language, code]
+              properties:
+                language:
+                  type: string
+                  enum: [python, powershell, batch]
+                code:
+                  type: string
+                stdin:
+                  type: string
+                timeoutMs:
+                  type: integer
+                  default: 5000
+      responses:
+        "200":
+          description: Résultat d'exécution
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [stdout, stderr, exitCode]
+                properties:
+                  stdout: { type: string }
+                  stderr: { type: string }
+                  exitCode: { type: integer }
+
+  /write:
+    post:
+      operationId: fileGen
+      summary: Écrit un fichier texte et renvoie le chemin/sha256
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [path, content]
+              properties:
+                path:
+                  type: string
+                content:
+                  type: string
+                overwrite:
+                  type: boolean
+                  default: true
+      responses:
+        "200":
+          description: Fichier écrit
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [path, bytesWritten, sha256]
+                properties:
+                  path: { type: string }
+                  bytesWritten: { type: integer }
+                  sha256: { type: string }
+
+  /search:
+    post:
+      operationId: searchDocs
+      summary: Recherche une requête texte dans les sitemaps Rainmeter (docs/forum)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query:
+                  type: string
+                scope:
+                  type: string
+                  enum: [manual, forum, all]
+                  default: manual
+                maxResults:
+                  type: integer
+                  default: 5
+      responses:
+        "200":
+          description: Résultats de recherche
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [results]
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      required: [title, url]
+                      properties:
+                        title: { type: string }
+                        url: { type: string }
+                        snippet: { type: string }
