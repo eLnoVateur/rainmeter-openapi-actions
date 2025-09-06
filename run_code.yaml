@@ -8,6 +8,7 @@ info:
 paths:
   /run:
     post:
+      operationId: runCode 
       summary: Exécute un snippet.
       requestBody:
         required: true
@@ -53,3 +54,4 @@ paths:
                         mime: { type: string }
 
                         size: { type: integer }
+
