@@ -1,17 +1,17 @@
-servers:
-  - url: https://rainmeter-actions-server.onrender.com/
 openapi: 3.1.0
 info:
   title: run_code
   version: "1.0.0"
-  description: Exécuter un extrait court pour tester une idée (Lua, Python, PowerShell, Batch).
+  description: Exécuter un extrait court (Python, PowerShell, Batch) pour tester une idée.
+
 servers:
   - url: https://rainmeter-actions-server.onrender.com
+
 paths:
   /run:
     post:
-      operationId: runCode 
-      summary: Exécute un snippet.
+      operationId: runCode
+      summary: Exécute un snippet et renvoie stdout/stderr/exitCode
       requestBody:
         required: true
         content:
@@ -23,7 +23,7 @@ paths:
               properties:
                 language:
                   type: string
-                  enum: [lua, python, powershell, batch]
+                  enum: [python, powershell, batch]
                 code:
                   type: string
                   minLength: 1
@@ -54,7 +54,4 @@ paths:
                       properties:
                         path: { type: string }
                         mime: { type: string }
-
                         size: { type: integer }
-
-
