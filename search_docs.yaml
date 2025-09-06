@@ -31,7 +31,7 @@ paths:
                   minimum: 1
                   maximum: 10
                   default: 5
-      responses:
+      responses: 
         "200":
           description: Résultats de recherche
           content:
@@ -50,4 +50,5 @@ paths:
                         url: { type: string }
 
                         snippet: { type: string }
+
 
