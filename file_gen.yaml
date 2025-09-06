@@ -1,17 +1,17 @@
-servers:
-  - url: https://rainmeter-actions-server.onrender.com/
 openapi: 3.1.0
 info:
   title: file_gen
   version: "1.0.0"
-  description: Créer/écrire des fichiers texte (.ini, .inc, .lua, .ps1, .bat, .cmd, .txt).
+  description: Générer/écrire des fichiers texte (.ini, .inc, .lua, .ps1, .bat, .cmd, .txt).
+
 servers:
   - url: https://rainmeter-actions-server.onrender.com
+
 paths:
   /write:
     post:
-      operationId: fileGen 
-      summary: Écrit un fichier sur le disque autorisé.
+      operationId: fileGen
+      summary: Écrit un fichier texte et renvoie le chemin/sha256
       requestBody:
         required: true
         content:
@@ -24,7 +24,7 @@ paths:
                 path:
                   type: string
                   pattern: '^[\w\-\./\\@# ]+\.(ini|inc|lua|ps1|bat|cmd|txt)$'
-                  description: Chemin relatif sûr.
+                  description: Chemin relatif (côté serveur) sans parcours parent.
                 content:
                   type: string
                   minLength: 1
@@ -42,7 +42,4 @@ paths:
                 properties:
                   path: { type: string }
                   bytesWritten: { type: integer }
-
                   sha256: { type: string }
-
-
