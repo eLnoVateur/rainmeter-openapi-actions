@@ -9,7 +9,7 @@ info:
     - /search : rechercher dans la documentation Rainmeter
 
 servers:
-  - url: https://rainmeter-actions.onrender.com   # ⚠️ remplace par ton URL Render exacte
+  - url: https://rainmeter-actions-server.onrender.com
 
 paths:
   /run:
@@ -118,3 +118,4 @@ paths:
                         title: { type: string }
                         url: { type: string }
                         snippet: { type: string }
+
