@@ -13,5 +13,30 @@ Ce dépôt contient une spécification **OpenAPI 3.1** unique (`rainmeter_action
 
 ## URL RAW à importer dans GPT
 
+
+---
+
+## ✅ examples.json (dans ton repo)
+
+```json
+{
+  "tests": {
+    "runCode": {
+      "language": "python",
+      "code": "print(2+3)"
+    },
+    "fileGen": {
+      "path": "Clock.ini",
+      "content": "[Rainmeter]\nUpdate=1000\n"
+    },
+    "searchDocs": {
+      "query": "Roundline",
+      "scope": "manual",
+      "maxResults": 2
+    }
+  }
+}
+
+
 ```text
 https://raw.githubusercontent.com/eLnoVateur/rainmeter-openapi-actions/main/rainmeter_actions.yaml
