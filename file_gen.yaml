@@ -8,6 +8,7 @@ info:
 paths:
   /write:
     post:
+      operationId: fileGen 
       summary: Écrit un fichier sur le disque autorisé.
       requestBody:
         required: true
@@ -41,3 +42,4 @@ paths:
                   bytesWritten: { type: integer }
 
                   sha256: { type: string }
+
