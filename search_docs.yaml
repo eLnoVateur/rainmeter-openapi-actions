@@ -8,6 +8,7 @@ info:
 paths:
   /search:
     post:
+      operationId: searchDocs 
       summary: Recherche une requête texte.
       requestBody:
         required: true
@@ -49,3 +50,4 @@ paths:
                         url: { type: string }
 
                         snippet: { type: string }
+
