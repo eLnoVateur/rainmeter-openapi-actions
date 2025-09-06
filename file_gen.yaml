@@ -1,0 +1,40 @@
+openapi: 3.0.0
+info:
+  title: file_gen
+  version: "1.0.0"
+  description: Créer/écrire des fichiers texte (.ini, .inc, .lua, .ps1, .bat, .cmd, .txt).
+paths:
+  /write:
+    post:
+      summary: Écrit un fichier sur le disque autorisé.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [path, content]
+              properties:
+                path:
+                  type: string
+                  pattern: '^[\w\-\./\\@# ]+\.(ini|inc|lua|ps1|bat|cmd|txt)$'
+                  description: Chemin relatif sûr.
+                content:
+                  type: string
+                  minLength: 1
+                overwrite:
+                  type: boolean
+                  default: true
+      responses:
+        "200":
+          description: Fichier écrit
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [path, bytesWritten]
+                properties:
+                  path: { type: string }
+                  bytesWritten: { type: integer }
+                  sha256: { type: string }
