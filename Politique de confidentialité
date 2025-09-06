@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Politique de confidentialité – Expert Rainmeter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #333;
+    }
+    h1, h2 {
+      color: #0055aa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Politique de confidentialité – Expert Rainmeter</h1>
+  <p><em>Dernière mise à jour : 06 septembre 2025</em></p>
+
+  <h2>Collecte des données</h2>
+  <p>L’assistant <strong>Expert Rainmeter</strong> ne collecte, n’enregistre et ne partage aucune donnée personnelle.
+  Les interactions se limitent uniquement aux messages que vous saisissez afin de générer des réponses techniques sur Rainmeter.</p>
+
+  <h2>Utilisation des données</h2>
+  <p>Vos messages sont transmis au service OpenAI afin de produire des réponses.
+  Aucune information personnelle n’est utilisée à d’autres fins par le créateur de ce GPT.</p>
+
+  <h2>Conservation des données</h2>
+  <p>Le créateur de ce GPT ne conserve aucune copie de vos échanges.
+  Toute conservation ou utilisation éventuelle est gérée exclusivement par
+  <a href="https://openai.com/policies/privacy" target="_blank">OpenAI</a>.</p>
+
+  <h2>Partage des données</h2>
+  <p>Aucune donnée n’est partagée, vendue ou transmise à des tiers par le créateur de ce GPT.</p>
+
+  <h2>Sécurité</h2>
+  <p>Comme aucune donnée n’est stockée par le créateur, aucun risque de fuite ou de mauvaise utilisation n’existe en dehors du traitement normal par OpenAI.</p>
+
+  <h2>Contact</h2>
+  <p>Pour toute question relative à cette politique de confidentialité, vous pouvez contacter :<br>
+  📧 <strong>elnovateur@gmail.com</strong></p>
+</body>
+</html>
